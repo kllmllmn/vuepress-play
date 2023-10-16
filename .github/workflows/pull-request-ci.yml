@@ -1,30 +1,18 @@
-name: Pull request workflow
-
-on: # 触发条件
-  # 每当 push 到 main 分支时触发部署
-  push:
-    branches:
-      - main
-  # 是否手动触发部署
-  # workflow_dispatch:
-
+name: Build and Deploy
+on: [push]
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          # node 14/18 都会构建失败
-          node-version: 16
-      - run: yarn install
-      - name: Build
-        run: yarn docs:build
+      - name: Checkout
+        uses: actions/checkout@master
 
-      # - name: CreateTag
-      #   run git tag -a
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTION_SECRET }}
-          publish_dir: docs/.vuepress/dist
+      - name: vuepress-deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACTION_SECRET }}
+          TARGET_REPO: kllmllmn/vuepress-play
+          TARGET_BRANCH: main
+          BUILD_SCRIPT: yarn && yarn docs:build
+          BUILD_DIR: docs/.vuepress/dist
+          # CNAME: https://www.xxx.com
