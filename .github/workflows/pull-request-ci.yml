@@ -18,7 +18,7 @@ jobs:
           node-version: 16
       - run: yarn install
       - name: Build
-        run: yarn build
+        run: yarn docs:build
 
       # - name: CreateTag
       #   run git tag -a
