@@ -39,6 +39,6 @@ module.exports = {
       //   },
     ],
     sidebar: "auto",
-    displayAllHeaders: true, // 默认值：false
+    // displayAllHeaders: true, // 默认值：false
   },
 };
