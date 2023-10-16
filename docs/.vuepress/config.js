@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/vuepress-play/",
   title: "Hello VuePress",
   description: "Just playing around",
   markdown: {
