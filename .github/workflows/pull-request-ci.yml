@@ -1,5 +1,7 @@
 name: Build and Deploy
-on: [push]
+push:
+  branches:
+    - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -12,7 +14,7 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACTION_SECRET }}
           TARGET_REPO: kllmllmn/vuepress-play
-          TARGET_BRANCH: main
+          TARGET_BRANCH: gh_pages
           BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
           # CNAME: https://www.xxx.com
