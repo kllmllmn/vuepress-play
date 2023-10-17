@@ -10,3 +10,7 @@
 ```
 https://kllmllmn.github.io/vuepress-play/
 ```
+
+... warning
+由于使用 access token (存在有效期限制) 来通过 github actions 进行部署，因此，在失效后需要更新 access token 才可以使 github actions 成功部署。
+...

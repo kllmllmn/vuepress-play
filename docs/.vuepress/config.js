@@ -20,9 +20,10 @@ module.exports = {
             text: "learn2",
             link: "/learn/learn2.md",
           },
+          { text: "外链", link: "/learn/outLink.md" },
         ],
       },
-      { text: "External", link: "https://google.com" },
+      { text: "外部搜索", link: "https://cn.bing.com/" },
       //   {
       //     text: "External_2",
       //     link: "https://google.com",
